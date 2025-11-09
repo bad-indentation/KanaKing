@@ -8,7 +8,8 @@ users.
 Words are collected from https://www.jisho.org using requests.
 
 Please use this module responisbly. Do not overload Jisho with high rates
-of requests; throttle the rate at which you send requests using time.sleep()
+of requests; throttle the rate at which you send requests using time.sleep().
+Jisho's robots.txt suggests 40 seconds in between requests
 """
 
 # pylint: disable=import-error
@@ -46,7 +47,7 @@ from config.constants import (
 HIRAGANA_MONOSYLLABLES = BASIC_HIRAGANA_SYLLABLES + DAKUTEN_HIRAGANA_SYLLABLES + HANDAKUTEN_HIRAGANA_SYLLABLES
 HIRAGANA_WORDLIST = "./src/data/hiragana_wordlist.csv"
 KATAKANA_WORDLIST = "./src/data/katakana_wordlist.csv"
-
+REQUEST_DELAY = 40
 
 def parse_wordlist(file: str) -> dict:
     """Parses a wordlist and creates a usable dictionary"""
@@ -217,7 +218,7 @@ def get_hiragana():
         urls = [f"https://jisho.org/search/%23jlpt-n{l}%20{char}" for l in range(4, 6)]
 
         for url in urls:
-            sleep(1)
+            sleep(REQUEST_DELAY)
             reading_list, meaning_list = search_char(url)
 
             for reading, meaning in zip(reading_list, meaning_list):
@@ -242,7 +243,7 @@ def get_katakana():
 
 
     for char in ALL_SINGLE_CHAR_KATAKANA:
-        sleep(1)
+        sleep(REQUEST_DELAY)
         urls = [f"https://jisho.org/search/%23common%20{char}%20%23words?page={p}"
                 for p in range(1,2)]
 
