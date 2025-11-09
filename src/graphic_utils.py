@@ -202,9 +202,6 @@ class KatakanaKeyboard(tk.Frame):
                 if char != "*":
                     key = KeyboardButton(char, master=self.key_frame)
 
-                    # Small lambda bug fix by ChatGPT; without the ch=char,
-                    # the program was only able to output one letter no matter what
-                    # key was pressed
                     key.bind("<Button-1>", lambda e, ch=char: self.add_character(ch))
 
                     key.grid(row=r, column=10-c)

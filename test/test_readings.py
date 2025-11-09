@@ -15,7 +15,6 @@ import sys
 import os
 import pytest
 
-# Code to help import from src - from Google (cannot remember URL)
 root_dir = os.getcwd()
 if os.name == "nt":
     sys.path.insert(1, root_dir+"\\src")

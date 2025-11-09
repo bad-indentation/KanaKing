@@ -26,9 +26,6 @@ import settings
 
 # Initialize character sets
 
-# Yes, I probably could have generated a lot of these algorithmically,
-# but there are too many exceptions for this to be practical.
-
 # Note that some fairly rare cases are not represented using this system.
 
 
@@ -227,7 +224,6 @@ HIRAGANA_BASIC_KEYBOARD = [
     ['わ', '*', '*', '*', 'ん']
 ]
 
-# Just realized that kana ruins the monospace. :(
 
 HIRAGANA_DAKUTEN_KEYBOARD = [
     ['*', '*', '*', '*', '*'], # vowel

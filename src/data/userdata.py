@@ -30,7 +30,7 @@ def reset_file(file: str, kana_type: Literal["hiragana", "katakana"]):
     the characters.
     """
 
-    # A small safety net so I don't accidentally overwrite the wordlist files
+    # Safety net to avoid overriding wordlist files 
     with open(file, "r", encoding="utf-8") as f:
         if len(f.readlines()) > 50:
             raise ValueError(f"Are you sure {file} is the file you want to overwrite?!")
@@ -121,7 +121,7 @@ def update_data(file: str, char: str, correct: bool, seconds: int):
     """
     data = load_data(file)
 
-    char_data = data[char] # here the mutablity of a list is finally useful. :)
+    char_data = data[char] 
 
     if not correct:
         char_data[0] += 1

@@ -4,17 +4,6 @@ main.py
 Controls the actual running of the application
 """
 
-##### <REFERENCES> #####
-
-# https://www.pythontutorial.net/tkinter/tkinter-radio-button/
-# ChatGPT for some bits. :)
-# https://stackoverflow.com/questions/16500052/tkinter-spinbox-widget-setting-default-value
-# https://www.tutorialspoint.com/python/tk_scrollbar.htm
-# jisho.org
-
-
-##### </REFERENCES> #####
-
 # pylint: disable=import-error
 # pylint: disable=unused-import, wildcard-import
 # pylint: disable=undefined-variable
@@ -130,9 +119,6 @@ class StudyMenuScreen(Screen):
         self.type_radios = {}
         self.session_type = tk.StringVar(master=type_frm)
 
-        # Used https://www.pythontutorial.net/tkinter/tkinter-radio-button/
-        # and some ChatGPT for this bit
-
         for name in type_radio_names:
             new_radio = tk.Radiobutton(type_frm,
                                        bg=BG_CURRENT_COLOR, fg=TEXT_CURRENT_COLOR, text=name,
@@ -152,7 +138,6 @@ class StudyMenuScreen(Screen):
                                           from_=1, to=200)
 
         # Set the value in the box
-        # (from https://stackoverflow.com/questions/16500052/tkinter-spinbox-widget-setting-default-value)
         self.question_number.delete(0, "end")
         self.question_number.insert(0, 25)
 
@@ -422,7 +407,6 @@ class AboutScreen(Screen):
     """
     def initialize_subwidgets(self):
 
-        # Figured out how to make a scrollable page using https://www.tutorialspoint.com/python/tk_scrollbar.htm
         title = BasicLabel(LARGE_FONTSIZE, text="About", master=self)
         title.pack(side="top", fill="x")
 

@@ -101,8 +101,7 @@ def search_char(url: str):
             # If it comes across a kanji, it replaces it with the furigana
 
 
-            # I wrote this code without really knowing what I was doing;
-            # I know it's terrible.
+            # TODO: refactor/improve robustness
 
             # full word with kanji AND kana
             try:
